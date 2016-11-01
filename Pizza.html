@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Corner Slice</title>
+        <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/pizza.css">
+
+    </head>
+    <body>
+    <div id="skinny">
+        <img src="img/bg-pizza.png" class="background">
+        <div class="header">
+            <h1 class="logo-font">Corner Slice</h1>
+                <h5 class="logo-font">Handcrafted since 1996</h5>
+            <div class="triangle"></div>
+            <hr>
+        </div>
+        <h3>Order Online (Carry-Out Only)</h3>
+        <form method="GET" action="http://requestb.in/1f5cata1">
+            <p>
+                <label for="sender_email">From:</label>
+                <input id="sender_email" name="sender_email" type="email" placeholder="example@email.com">
+            </p>
+            <p>
+                <label for="phone_number">Phone Number</label>
+                <input id="phone_number" name="phone_number" type="number">
+            </p>
+            <p>
+                <input type="checkbox" id="copy" value="yes" checked>
+                <label for="copy">Send a text when your order is ready?</label>
+            </p>
+            <p>Type of Crust?</p>
+            <p>
+                <label>
+                    <input type="checkbox" id="crust1" name="crust1 []" value="thin">Thin
+                </label>
+                <label>
+                    <input type="checkbox" id="crust2" name="crust2 []" value="deep-dish">Deep Dish
+                </label>
+                <label>
+                    <input type="checkbox" id="crust3" name="crust3 []" value="original">Original Hand Tossed
+                </label>
+                <label>
+                    <input type="checkbox" id="crust4" name="crust4 []" value="gluten_-ree">Gluten Free
+                </label>
+            </p>
+            <p>Toppings</p>
+            <p>
+                <label>
+                    <input type="checkbox" id="topping1" name="toppings1 []" value="pepperoni">Pepperoni
+                </label>
+                <label>
+                    <input type="checkbox" id="topping2" name="toppings2 []" value="sausage">Sausage
+                </label>
+                <label>
+                    <input type="checkbox" id="topping3" name="toppings3 []" value="chicken1">Grilled Chicken
+                </label>
+                <label>
+                    <input type="checkbox" id="topping4" name="toppings4 []" value="chicken2">Barbecue Chicken
+                </label>
+                <label>
+                    <input type="checkbox" id="topping5" name="toppings5 []" value="ham">Ham
+                </label>
+                <label>
+                    <input type="checkbox" id="topping6" name="toppings6 []" value="bacon">Bacon
+                </label>
+                <label>
+                    <input type="checkbox" id="topping7" name="toppings7 []" value="mushrooms">Mushrooms
+                </label>
+                <label>
+                    <input type="checkbox" id="topping8" name="toppings8 []" value="green-peppers">Green Peppers
+                </label>
+                <label>
+                    <input type="checkbox" id="topping9" name="toppings9 []" value="onions">Red Onions
+                </label>
+                <label>
+                    <input type="checkbox" id="topping10" name="toppings10 []" value="tomatoes">Sliced Tomatoes
+                </label>
+                <label>
+                    <input type="checkbox" id="topping11" name="toppings11 []" value="jalapenos">Jalapenos
+                </label>
+                <label>
+                    <input type="checkbox" id="topping12" name="toppings12 []" value="olives">Black Olives
+                </label>
+                <label>
+                    <input type="checkbox" id="topping13" name="toppings12 []" value="broccoli">Broccoli
+                </label>
+                <label>
+                    <input type="checkbox" id="topping14" name="toppings14 []" value="artichokes">Artichoke Hearts
+                </label>
+                <label>
+                    <input type="checkbox" id="topping15" name="toppings15 []" value="spinach">Spinach
+                </label>
+                <label>
+                    <input type="checkbox" id="topping16" name="toppings16 []" value="chicken">Basil Leaves
+                </label>
+                <label>
+                    <input type="checkbox" id="topping17" name="toppings17 []" value="cheese">Extra Cheese
+                </label>
+            </p>
+            <p>
+                <button>Send</button>
+            </p>
+        </form>
+    </div>
+    </body>
+</html>

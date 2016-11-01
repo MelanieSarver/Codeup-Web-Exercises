@@ -1,0 +1,49 @@
+.background {
+    min-height: 100%;
+    min-width 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+}
+
+#skinny {
+    margin: auto;
+    width: 75%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+}
+
+
+body {
+    font-family: 'Nobile', sans-serif;
+    color: #212730;
+}
+.header {
+    height: 100px;
+    background-color: #b1c946;
+    color: #b22c1e;
+    padding: 20px;
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 100px solid #212730;
+    border-right: 100px solid transparent;
+}
+h1 {
+    font-weight: normal;
+    font-size: 40px;
+    float: left;
+}
+h5 {
+    float: right;
+    margin-top: 70px;
+}
+hr {
+    border-color: #ff513f;
+    border-height: 4px;
+}
+
