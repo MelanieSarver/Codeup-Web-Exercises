@@ -12,36 +12,28 @@ body {
 }
 .height {
     height: 100vh;
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 .curly {
-    color: #ffffff;
+    color: #fff;
     font-family: 'Cabin Sketch', cursive;
     font-size: 1000%;
 }
-.container {
-    font-size: 200%;
-}
-.my-content {
-    position: relative;
+/*.my-content {*/
+    /*position: relative;*/
+    /*height:auto;*/
 }
 .cover-letter {
-    position: relative;
-    top: 300px;
-    right: 10px;
-    left: 350px;
+    color: white;
+    /*position: relative;*/
+    /*top: 300px;*/
+    /*right: 10px;*/
+    /*left: 350px;*/
     font-size: larger;
 }
 #open-bracket {
-    position: absolute;
-    top: 175px;
-    left: 300px;
+    float: left;
 }
 #close-bracket {
-    position: absolute;
-    top: 350px;
-    right: -135px;
+    float: right;
 }
 
