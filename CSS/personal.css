@@ -115,4 +115,13 @@ a {
         font-weight: 300;
     }
 }
+.buttons {
+    background-color: #6bc8c9;
+    color: #ff513f;
+}
+.message-me {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ff513f;
+}
 

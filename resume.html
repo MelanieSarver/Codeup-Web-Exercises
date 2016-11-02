@@ -26,8 +26,54 @@
         </div> <!-- cd-fixed-bg -->
         <div class="cd-scrolling-bg cd-color-1">
             <div class="cd-container">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#1a">Home</a></li>
+                    <li role="presentation"><a href="#2a">Relevant Skills</a></li>
+                    <li role="presentation"><a href="#3a">Education</a></li>
+                    <li role="presentation"><a href="#4a">Work Experience</a></li>
+                </ul>
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="1a">
+                        <h3>Objective:</h3>
+                        <p>To find an exciting company that I can grow with.</p>
+                    </div>
+                    <div class="tab-pane" id="2a">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-pane" id="3a">
+                        <h3>Bachelor Of Fine Arts</h3>
+                        <p>Northwest Missouri State University</p>
+                        <h3>CodeUp</h3>
+                        <p>Niagara Cohort</p>
+                    </div>
+                    <div class="tab-pane" id="4a">
+                        <h3>Aspen Dental</h3>
+                        <p>Registered Dental Assistant</p>
+                        <h3>Red Cross Volunteer</h3>
+                        <p>Dental Assistant</p>
+                        <h3>United States Navy Reserve</h3>
+                        <h3>Administrative Assistant</h3>
+                        <h3>Retail Store Manager</h3>
+                    </div>
+                </div>
             </div>
+
+        </div>
         </div>
     </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $('.nav-tabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
 </body>
 </html>
