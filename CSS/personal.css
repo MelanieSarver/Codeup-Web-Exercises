@@ -1,39 +1,118 @@
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 body {
     background-color: #0a0a0a;
     width: 100%;
+    height: 100%;
+    font-size: 100%;
+    font-family: 'Marcellus SC', serif;
+    color: #141414;
 }
-#main-img {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
+body, html {
+    /* important. seems redundant, but code breaks without it */
+    height: 100%;
 }
-.height {
-    height: 100vh;
+.local-nav {
+    background-color: #6bc8c9;
+    font-size: 3em;
 }
-.curly {
-    color: #fff;
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 1000%;
+a {
+    color: #ff513f;
 }
-/*.my-content {*/
-    /*position: relative;*/
-    /*height:auto;*/
+/*.portrait {*/
+    /*height: 170px;*/
+    /*width: 170px;*/
+    /*margin-left: 30px;*/
+/*}*/
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-.cover-letter {
+.cd-container {
+    /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+.cd-container::after {
+    /* clearfix */
+    content: '';
+    display: table;
+    clear: both;
+}
+.cd-main-content {
+    /* you need to assign a min-height to the main content so that the children can inherit it*/
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.cd-fixed-bg {
+    position: relative;
+    min-height: 75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+}
+.cd-fixed-bg h1, .cd-fixed-bg h2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 90%;
+    max-width: 1170px;
+    text-align: center;
+    /*font-size: 30px;*/
+    font-size: 2em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     color: white;
-    /*position: relative;*/
-    /*top: 300px;*/
-    /*right: 10px;*/
-    /*left: 350px;*/
-    font-size: larger;
 }
-#open-bracket {
-    float: left;
+.cd-fixed-bg.cd-bg-1 {
+    background-image: url("../img/fontainhead2.jpg");
 }
-#close-bracket {
-    float: right;
+@media only screen and (min-width: 320px) {
+    .cd-fixed-bg h1, .cd-fixed-bg h2 {
+        font-size: 36px;
+    }
+}
+@media only screen and (min-width: 480px) {
+    .cd-fixed-bg {
+        background-attachment: fixed;
+    }
+    .cd-fixed-bg h1, .cd-fixed-bg h2 {
+        font-size: 48px;
+        font-weight: 300;
+    }
+}
+.cd-scrolling-bg {
+    position: relative;
+    min-height: 50%;
+    padding: 4em 0;
+    line-height: 1.6;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.cd-scrolling-bg.cd-color-1 {
+    background-color: #d1b73c;
+    color: #0a0a0a;
+}
+@media only screen and (min-width: 480px) {
+    .cd-scrolling-bg {
+        padding: 8em 0;
+        /*font-size: 20px;*/
+        font-size: 1.25rem;
+        line-height: 2;
+        font-weight: 300;
+    }
 }
 
