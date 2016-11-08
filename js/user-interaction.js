@@ -6,7 +6,7 @@ var response = prompt("What is your name?");
     while (response == "" || response == null) {
         response = prompt("What is your name?")
     }
-
+//while (!username) { works much easier :(
 
 // TODO: Show an alert message that welcomes the user based on their input.
 
@@ -18,4 +18,6 @@ alert("Welcome, " + response);
 var pizza = confirm("Do you like pizza? (Click Okay for Yes, Cancel for No)");
 if (pizza) {
     alert(response + " is a Ninja Turtle!!!!")
+} else {
+    alert( response + " is an alien spy!!")
 }
