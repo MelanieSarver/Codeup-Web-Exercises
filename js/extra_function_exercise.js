@@ -15,9 +15,6 @@ while(!userNumberTwo) {
 }
 
 
-var x = userNumberOne;
-var y = userNumberTwo;
-
 var userFunction = prompt("Would you like to add, subtract, divide, or multiply?");
 while(!userFunction) {
     userFunction = prompt("Would you like to add, subtract, divide, or multiply?");
@@ -27,29 +24,30 @@ switch(userFunction) {
         var addition = function (a, b) {
             console.log(a + b);
         };
-        addition(x, y);
+        addition(userNumberOne, userNumberTwo);
         break;
 
     case "subtract":
         var subtraction = function (a, b) {
             console.log(a - b);
         };
-        subtraction(x, y);
+        subtraction(userNumberOne, userNumberTwo);
         break;
 
     case "divide":
         var division = function (a, b) {
             console.log(a / b);
         };
-        division(x, y);
+        division(userNumberOne, userNumberTwo);
         break;
 
     case "multiply":
         var multiply = function (a, b) {
             console.log(a * b);
         };
-        multiply(x, y);
+        multiply(userNumberOne, userNumberTwo);
         break;
     default:
         alert("I don't know that function. Please refresh and try again")
 }
+
