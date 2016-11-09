@@ -2,44 +2,65 @@
  * Created by mel on 11/3/16.
  */
 "use strict";
-var x = 70;
-var y = 80;
-var z = 95;
-var avg = (x + y + z) / 3;
+(function() {
+    //Average 3 grades and console.log the appropriate message.
 
-if (avg > 80) {
-    console.log("You're Awesome")
-} else {
-    console.log("You need to practice more")
-}
+    var avg = function(x,y,z) {
+        return(x + y + z) / 3;
+    };
 
-var cameron = 180;
-var ryan = 250;
-var george = 320;
-var discount = 25;
+    var gradeOne = 70;
+    var gradeTwo = 80;
+    var gradeThree = 95;
 
-if (cameron > 200) {
-    console.log("Cameron pays $" + (cameron - discount))
-} else {
-    console.log("Cameron pays $" + (cameron) + ". Sorry, no discount today.")
-}
-if (ryan > 200) {
-    console.log("Ryan pays $" + (ryan - discount))
-} else {
-    console.log("Ryan pays $" + (ryan) + ". Sorry, no discount today.")
-}
-if (george > 200) {
-    console.log("George pays $" + (george - discount))
-} else {
-    console.log("George pays $" (george) + ". Sorry, no discount today.")
-}
+    if (avg(gradeOne,gradeTwo,gradeThree) > 80) {
+        console.log("You're Awesome")
+    } else {
+        console.log("You need to practice more")
+    }
 
 
-var flipACoin = Math.floor(Math.random()* 2)
+    //Decide which customers get a discount and how much they should pay.
+    var discount = 25;
+    var groceries = 180;
 
-if (flipACoin == 0) {
-    console.log("You get a car!!")
-} else {
-    console.log("I know a good agent.")
-}
+    var total = function(x) {
+        return(x - discount);
+    };
+
+    if (groceries > 200) {
+        console.log("Cameron pays $" + total(groceries));
+    } else {
+        console.log("Cameron pays $" + groceries + ". Sorry, no discount today.");
+    }
+    groceries = 250;
+    if (groceries > 200) {
+        console.log("Ryan pays $" + total(groceries));
+    } else {
+        console.log("Ryan pays $" + groceries + ". Sorry, no discount today.");
+    }
+    groceries = 320;
+    if (groceries > 200) {
+        console.log("George pays $" + total(groceries));
+    } else {
+        console.log("George pays $" + groceries + ". Sorry, no discount today.");
+    }
+
+
+    var flipACoin = Math.floor(Math.random() * 2);
+
+    if (flipACoin == 0) {
+        console.log("You get a car!!")
+    } else {
+        console.log("I know a good agent.")
+    }
+
+
+
+
+
+
+
+
+})();
 
