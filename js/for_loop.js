@@ -3,7 +3,7 @@
  */
 "use strict";
 
-exercise 2
+// exercise 2
 var i = 6;
 
 for (var j = 1; j < 11; j += 1) {
@@ -12,7 +12,7 @@ for (var j = 1; j < 11; j += 1) {
 
 //exercise 3
 
-for (var i = 1; i <= 10; i++) {
+for (var a = 1; a <= 10; a++) {
     var x = Math.floor(Math.random() * 180) + 20;
     if (x % 2 == 0) {
         console.log(x + " is even");
