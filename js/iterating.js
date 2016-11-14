@@ -8,8 +8,11 @@
     console.log(names.length);
 
     // TODO: Create log statements that will print each of the names array elements individually.
-    console.log(names[0]);
-    console.log(names[1]);
-    console.log(names[2]);
-    console.log(names[3]);
+    for(var i = 0; names.length; i++) {
+        console.log("name " + (i+1) + " " + names[i]);
+    }
+    // This is broken. Not sure why. Don't push to Git til it's fixed
+    names.forEach(function (name) {
+        console.log("name: " + name);
+    });
 })();

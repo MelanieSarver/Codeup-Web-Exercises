@@ -57,4 +57,8 @@
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     planets.sort();
     logPlanets();
+    //Bonus
+    console.log("Find a random planet.");
+    var randomPlanet = planets[Math.floor(Math.random()*planets.length)];
+    console.log(randomPlanet);
 })();
