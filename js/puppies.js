@@ -29,13 +29,6 @@
             spayed: false
         }
     ];
-console.log(puppies);
-//    randomly insert puppy objects into html file
-//     function getRandomInt(min, max) {
-//         return Math.floor(Math.random() * (max - min + 1)) + min;
-//     }
-//     var random = puppies[Math.floor(Math.random() * puppies.length)];
-//     console.log(random);
 
     puppies.forEach(function (puppy, i){
         document.getElementsByClassName('puppy-photo')[i].innerHTML = puppy.photo;
@@ -48,8 +41,5 @@ console.log(puppies);
             document.getElementsByClassName('fixed')[i].innerHTML = "spay/neuter voucher included with adoption";
         }
     });
-
-    // });
-
 })();
 
