@@ -7,6 +7,7 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="header">"Click me!"</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -14,7 +15,9 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="blue">"Oooh!!!"</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="sub">"Ahhh!!!"</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,41 +27,88 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<button id="switch">"What does THIS button do?"</button>
+
+<div>
+    <button id="bom">"Whatever you do, DON'T press this button"</button>
+    <h2 id="hide-away"></h2>
+</div>
+<div id="escape"></div>
 
 <script>
-    (function() {
+    (function () {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
-         var mainHeader = document.getElementById('main-header');
+        var mainHeader = document.getElementById('main-header');
+        var headerChange = document.getElementById('header');
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+
+        headerChange.addEventListener('click', function () {
+            mainHeader.innerHTML = "JavaScript is Cool";
+        });
         // TODO: Uncomment the next line and get the sub header element by id
-         var subHeader = document.getElementById('sub-header');
-
+        var subHeader = document.getElementById('sub-header');
+        var subChange = document.getElementById('sub');
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = 'blue';
+        subChange.addEventListener('click', function () {
+            subHeader.style.color = 'blue';
+        });
         // TODO: Uncomment the next line and get all list items
-         var listItems = document.getElementsByTagName('li');
-
+        var listItems = document.getElementsByTagName('li');
+        var color = document.getElementById('blue');
 //         TODO: Set text color on every other list item to grey
-        for(var i = 0; i < listItems.length; i += 2) {
+        for (var i = 0; i < listItems.length; i += 2) {
             listItems[i].style.color = 'grey';
         }
 
         // TODO: Set text color of li with dbid = 1 to blue
 //        listItems[0].style.color = 'blue'; <--- my solution, which Fer said was wrong because it's not dynamic  :(
-        for(var m = 0; m < listItems.length; m ++) {
-            if(listItems[m].getAttribute('data-dbid') == 1) {
-                listItems[m].style.color = 'blue';
+        color.addEventListener('click', function () {
+            for (var m = 0; m < listItems.length; m++) {
+                if (listItems[m].getAttribute('data-dbid') == 1) {
+                    listItems[m].style.color = 'blue';
+                }
             }
-        }
-
+        });
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-         var subParagraphs = document.getElementsByClassName('sub-paragraph');
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+        var replaceText = document.getElementById('switch');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!";
+        replaceText.addEventListener('click', function () {
+            subParagraphs[0].innerHTML = "Mission Accomplished!";
+        });
+//        Bonus!!
+//        Create a countdown that can be triggered by a button and stop it with another one.
+        var detonationTimer = 30; // max
+        var interval = 1000;
+        var bomb;
+        var uhOh = function() {
+            bomb = setInterval(function updateTimer() {
+                if (detonationTimer == 0) {
+                    alert('SERIOUSLY??');
+//                document.body.innerHTML = '<img src = img/dalek.jpeg/>';
+                } else if (detonationTimer > 0) {
+                    document.getElementById('hide-away').innerHTML = "I told you NOT to do that!  <span id='timer'></span>";
+                    document.getElementById('timer').innerHTML = detonationTimer;
+                    document.getElementById('escape').innerHTML = "<button>" + "'Escape'" + "</button>";
+                }
+
+                detonationTimer--;
+            }, interval);
+        };
+        var start = document.getElementById('bom');
+        start.addEventListener('click', uhOh, false);
+
+        function whew() {
+            clearInterval(bomb);
+            alert("Took you long enough!");
+
+        }
+        var stop = document.getElementById('escape');
+        stop.addEventListener('click', whew, false);
+
     })();
 </script>
 </body>
