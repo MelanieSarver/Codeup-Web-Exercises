@@ -13,28 +13,38 @@
 <body>
 <!-- div to hold map -->
 <div id="map-canvas"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2SWL_pbdJ2Hwqdf7Fy5q6vESLIVcWclw"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2SWL_pbdJ2Hwqdf7Fy5q6vESLIVcWclw"></script>
 
 <!-- Script to show address on map -->
-    <script type="text/javascript">
-        (function () {
+<script type="text/javascript">
+    (function () {
         "use strict";
 
         var mapOptions = {
-            zoom: 20
+            zoom: 16
         };
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
         var address = "1727 Brooklyn Ave, Kansas City, MO 64127";
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({"address": address}, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map
+                });
+                var infoWindow = new google.maps.InfoWindow({
+                    content: "World's Best BBQ."
+                });
+                infoWindow.open(map, marker);
             } else {
                 console.log("Geocoding was not successful. Check your code and try again")
             }
         });
-        // Render the map
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     })();
 </script>
 </body>
