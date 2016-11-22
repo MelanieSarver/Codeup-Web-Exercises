@@ -3,49 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <title>World's Best BBQ</title>
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <style type="text/css">
+        body {
+            background-color: rgba(9, 12, 44, 0.87);
+        }
         #map-canvas {
             width: 770px;
             height: 481px;
+            margin: 10px auto;
+        }
+        #header {
+            height: 100px;
+            width: auto;
+            margin: auto;
+            background-color: #d1b73c;
+        }
+        h1 {
+            font-family: 'Abril Fatface', cursive;
+            margin: 50px auto;
+            text-align: center;
+            padding: 25px;
+            color: #8b0000;
+        }
+        h2 {
+            font-family: 'Abril Fatface', cursive;
+            color: #8b0000;
         }
     </style>
 </head>
 <body>
-<!-- div to hold map -->
-<div id="map-canvas"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2SWL_pbdJ2Hwqdf7Fy5q6vESLIVcWclw"></script>
+    <div id="header"><h1>Melanie's Guide to Kansas City BBQ</h1></div>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+    <div id="extras"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2SWL_pbdJ2Hwqdf7Fy5q6vESLIVcWclw"></script>
 
-<!-- Script to show address on map -->
-<script type="text/javascript">
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
     (function () {
-        "use strict";
+    "use strict";
 
         var mapOptions = {
-            zoom: 16
+            zoom: 12,
+            center: {
+                lat: 39.073007,      //generic Kansas City Lat/Lng that allows
+                lng: -94.592628      //all 3 pins to be shown on the map at once.
+            }
         };
 
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        var address = "1727 Brooklyn Ave, Kansas City, MO 64127";
+        // JSON object for restaurants
+        var addresses = [
+            {
+                bbqJoint: "Arthur Bryant's",
+                address: "1727 Brooklyn Ave, Kansas City, MO 64127",
+                comment: "Beloved by Presidents, Celebrities, and Regular Joe's since 1930",
+                info: "French fries cooked in lard and piles and piles of deliciousness on plain, white bread. What's not to love? Bring your appetite!",
+                image: "<img src='img/Arthur_Bryants.jpg'/>",
+                website: "<a href='http://www.arthurbryantsbbq.com/index.php' target='_blank'>",
+                pin: "img/NeedleLeftYellow2.png"
+            },
+            {
+                bbqJoint: "Joe's Kansas City",
+                address: "3002 West 47th Avenue, Kansas City, KS 66103",
+                comment: "World's Best BBQ Located in a Gas Station",
+                info: "Formerly Oklahoma Joe's, the name change may have fans on the fence, but everyone agrees that this is award winning BBQ at its finest.",
+                image: "<img src='img/Gas-Station-Joes-KC.jpg'/>",
+                website: "<a href='https://www.joeskc.com/' target='_blank'>",
+                pin: "img/DrawingPin1_Blue.png"
+            },
+            {
+                bbqJoint: "Gate's",
+                address: "1325 East Emanuel Cleaver Blvd. Kansas City, MO 64110",
+                comment: "Third Runner Up",
+                info: "Okay, so I've never actually eaten at Gates. But I think this one deserves mentioning as a local favorite.",
+                image: "<img src='img/gates-KC.jpg'/>",
+                website: "<a href='http://www.gatesbbq.com/' target='_blank'>",
+                pin: "img/Pin--Right-Chartreuse.png"
+            }
+        ];
+
+
         var geocoder = new google.maps.Geocoder();
 
-        geocoder.geocode({"address": address}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    position: results[0].geometry.location,
-                    map: map
-                });
-                var infoWindow = new google.maps.InfoWindow({
-                    content: "World's Best BBQ."
-                });
-                infoWindow.open(map, marker);
-            } else {
-                console.log("Geocoding was not successful. Check your code and try again")
-            }
-        });
-    })();
+        addresses.forEach(function (address) {
+            geocoder.geocode({"address": address.address}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                        var marker = new google.maps.Marker({
+                            position: results[0].geometry.location,
+                            animation: google.maps.Animation.DROP,
+                            icon: address.pin,
+                            map: map
+                        });
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: address.website + "<h2>" + address.bbqJoint + "</h2>" + "</a>" + "<h4>" + address.comment + "</h4>" + "<p>" + address.info + "</p>" + address.image
+                    });
+                    marker.addListener('click', function() {
+                        infoWindow.open(map, marker);
+                    },false);
+
+                } else {
+                    console.log("Geocoding was not successful. Check your code and try again")
+                }
+            }); //geocoder
+        });  //forEach
+    })();  //IFFE
 </script>
 </body>
 </html>
