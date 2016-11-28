@@ -3,14 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Homemade+Apple" rel="stylesheet">
     <script src="js/jquery-2.2.4.js"></script>
 </head>
 <body>
+    <div id="color-block">
+        <h1 id="main-header" class="section-lead">The Page About Nothing</h1>
+    </div>
+    <p id="paragraph-1" class="text-stuff">
+        Dragée pie icing icing ice cream carrot cake sweet roll sugar plum. Soufflé lollipop chocolate bar cotton candy.
+        Marshmallow lemon drops gummi bears chocolate cake cotton candy pudding jujubes.
+        Cake soufflé wafer pastry chocolate. Cotton candy cotton candy soufflé marzipan sesame snaps wafer. Dragée
+        cotton candy cake cheesecake jelly beans caramels chocolate bar wafer lollipop. Ice cream sesame snaps wafer liquorice icing sugar plum.
+    </p>
+    <div id="list-block" class="section-lead">
+        <ul id="list-stuff">
+            <li class="text-stuff">It's Monday</li>
+            <li class="text-stuff">I'm Sleepy</li>
+            <li class="text-stuff">Ate Too Much Turkey</li>
+            <li class="text-stuff">Not Feeling Creative</li>
+        </ul>
+    </div>
+    <p id="paragraph-2" class="text-stuff">
+        Cookie marzipan tart bonbon icing sugar plum gummies cotton candy. Sweet fruitcake fruitcake muffin candy pastry
+        candy wafer. Cake candy carrot cake croissant donut donut. Bonbon biscuit lemon drops jelly-o cake. Fruitcake
+        gummi bears lollipop lemon drops sweet roll ice cream caramels. Powder cookie biscuit. Candy canes oat cake icing.<br>
+        Donut halvah sesame snaps liquorice gummies sweet sugar plum jelly-o. Cookie sesame snaps oat cake candy lemon
+        drops toffee croissant jelly. Pastry bonbon jelly beans biscuit donut cupcake jelly-o toffee sugar plum. Macaroon
+        lollipop pastry lollipop topping carrot cake. Topping pastry bonbon jujubes chocolate bar carrot cake. Cotton
+        candy tootsie roll sesame snaps.
+    </p>
+
 
 
 <script>
 $(document).ready(function() {
-alert( 'The DOM has finished loading!' );
+    $('#color-block').css('height','100px');
+    $('#color-block').css('width', 'auto');
+    $('#color-block').css('background-color', '#D15F8A');
+    $('#main-header').css('font-family', 'Cinzel');
+    $('#main-header').css('text-align', 'center');
+    $('#paragraph-1').css('font-family', 'Homemade Apple');
+    $('#paragraph-2').css('font-family', 'Homemade Apple');
+    $('#list-block').css('height', '300px');
+    $('#list-block').css('width', '300px');
+    $('#list-block').css('background-color', '#D15F8A');
+    $('#list-stuff').css('font-family', 'Cinzel');
+    $('.text-stuff').css('color', '#5F88A8');
 });
 </script>
 </body>
