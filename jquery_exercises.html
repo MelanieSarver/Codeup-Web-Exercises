@@ -38,21 +38,29 @@
 
 <script>
 $(document).ready(function() {
-    $('#color-block').css({'height':'100px','width': 'auto','background-color': '#D15F8A'});
+//    $('#color-block').css({'height':'100px','width': 'auto','background-color': '#D15F8A'});
     $('#main-header').css({'font-family': 'Cinzel','text-align': 'center'});
     $('#paragraph-1').css('font-family', 'Homemade Apple');
     $('#paragraph-2').css('font-family', 'Homemade Apple');
-    $('#list-block').css({'height': '175px','width': '300px','background-color': '#D15F8A'});
+//    $('#list-block').css({'height': '175px','width': '300px','background-color': '#D15F8A'});
     $('#list-stuff').css('font-family', 'Cinzel');
-    $('.text-stuff').css('color', '#5F88A8');
-    $('ul#list-stuff > li').css('font-size', '20px');
-    $('li').css('color', '#fff');
-    $('li:last').css('color', '#000');
-//    $('h1').css('font-size', '80px');
-//    $('p').css('color', 'green');
-//    var contents = $('h1').html();
-//    alert(contents);
-//    $('h1, p, li').css('color', '#D15F8A')
+//    $('.text-stuff').css('color', '#5F88A8');
+//    $('ul#list-stuff > li').css('font-size', '20px');
+//    $('li').css('color', '#fff');
+//    $('li:last').css('color', '#000');
+    $('h1').click(function(){
+        $(this).css('background-color', '#D15F8A');
+    });
+    $('p').dblclick(function(){
+        $(this).css('font-size', '18px');
+    });
+    $('li').hover(function(){
+        $(this).css('background-color','red')
+    },
+    function(){
+        $(this).css('background-color', '#fff')
+    });
+
 });
 </script>
 </body>
