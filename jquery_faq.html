@@ -24,6 +24,8 @@
             text-align: right;
             font-family: 'Playfair Display SC', serif;
             color: rgb(151, 166, 209);
+            margin: 30 auto;
+            padding: 30px;
         }
         h3 {
             font-family:'Playfair Display SC', serif;
@@ -181,17 +183,16 @@
     "use strict";
     $(document).ready(function(){
         $('dt').click(function() {
-            $(this).next().toggleClass('invisible');
+            $(this).next().toggle();
         });
 
         $('ul').each(function() {
             $(this).children().first().css('font-weight', 'bold');
         });
         $('li').click(function(){
-            $(this).parent().toggleClass('invisible');
+            $(this).parent().hide();
         });
     });
-
 </script>
 </body>
 </html>
