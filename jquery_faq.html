@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>National Parks</title>
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic|Playfair+Display+SC" rel="stylesheet">
+    <style type="text/css">
+        .invisible {
+            font-family: 'Gentium Basic', serif;
+            display: none;
+
+        }
+        dt {
+            font-weight: 800;
+            font-size: 24px;
+            font-family: 'Playfair Display SC', serif;
+        }
+        #header {
+            height: 200px;
+            width: auto;
+            background-color: rgba(20, 20, 20, 0.81);
+        }
+        h1{
+            text-align: right;
+            font-family: 'Playfair Display SC', serif;
+            color: rgb(151, 166, 209);
+        }
+        #images {
+            height: 500px;
+            width: 350px;
+        }
+    </style>
+    <script src="js/jquery-2.2.4.js"></script>
+</head>
+<body>
+<div id="header">
+    <h1>National Parks Information</h1>
+</div>
+    <dl>
+        <dt>Niagara</dt>
+        <dd class="invisible">
+            Niagara Falls is the collective name for three waterfalls that straddle the international border
+            between Canada and the United States; more specifically, between the province of Ontario and the state of New
+            York. They form the southern end of the Niagara Gorge.
+            <br><br>
+            It is not a National Park, so our cohort was named after a lesser State Park. :(  Feeling under appreciated?
+        </dd>
+        <dt>Glacier</dt>
+        <dd class="invisible">
+            As the Crown of the Continent, Glacier is the headwaters for streams that flow to the Pacific Ocean, the Gulf
+            of Mexico, and to Hudson's Bay. What happens here effects waters in a huge section of North America.
+            <br><br>
+            Straddling the US Canadian border, the official name is Waterton-Glacier International Peace Park.
+        </dd>
+        <dt>Jellystone</dt>
+        <dd class="invisible">
+            Fun camping for the whole family
+            <br><br>
+            Best known for it's friendly wildlife, be sure to guard your pic-a-nik baskets or you might lose one to a
+            bear!
+        </dd>
+        <dt>YellowStone</dt>
+        <dd class="invisible">
+            Yellowstone was the first National Park in the U.S. and is also widely held to be the first national park in
+            the world. The park is known for its wildlife and its many geothermal features, especially Old Faithful Geyser,
+            one of its most popular features.
+            <br><br>
+            Don't try to bathe in the geothermals. You will die. Don't be dumb.
+        </dd>
+        <dt>Grand Canyon</dt>
+        <dd class="invisible">
+            Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km)
+            long, up to 18 miles (29km) wide, and a mile (1.6km) deep. Grand Canyon overwhelms our senses through its
+            immense size
+            <br><br>
+            For a special trip, make sure to book tickets on the Grand Canyon Train
+        </dd>
+        <dt>Everglades</dt>
+        <dd class="invisible">
+            Everglades National Park protects an unparalleled landscape that provides important habitat for numerous rare
+            and endangered species like the manatee,  American crocodile, and the elusive Florida panther.
+            <br><br>
+            Seriously, folks, stop dumping your exotic snakes into the Everglades.
+        </dd>
+        <dt>Big Bend</dt>
+        <dd class="invisible">
+            There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in
+            ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain
+            range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity
+            of species is the best in the country.
+        </dd>
+        <dt>Crater Lake</dt>
+        <dd class="invisible">
+            Crater Lake inspires awe. Native Americans witnessed it form 7,700 years ago, when a violent eruption triggered
+            the collapse of a towering volcano. Scientists marvel at its purity: fed by rain and snow, it’s the deepest lake
+            in the USA and perhaps the most pristine on earth.
+        </dd>
+        <dt>Mammoth Cave</dt>
+        <dd class="invisible">
+            Mammoth Cave National Park preserves the cave system and a part of the Green River valley and hilly country
+            of south central Kentucky. This is the world's longest known cave system, with more than 400 miles explored.
+        </dd>
+        <dt>Gettysburg</dt>
+        <dd class="invisible">
+            The Battle of Gettysburg was a turning point in the Civil War, the Union victory that ended General Robert E.
+            Lee's second and most ambitious invasion of the North. Often referred to as the "High Water Mark of the Rebellion",
+            Gettysburg was the Civil War's bloodiest battle and was also the inspiration for President Abraham Lincoln's
+            immortal "Gettysburg Address".
+        </dd>
+
+    </dl>
+<div id="images"></div>
+<script>
+    "use strict";
+    $(document).ready(function(){
+        $('dt').click(function() {
+            event.preventDefault();
+            $(this).next().toggleClass('invisible');
+        });
+    });
+
+</script>
+</body>
+</html>
