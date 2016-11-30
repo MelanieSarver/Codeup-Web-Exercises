@@ -37,23 +37,26 @@
         $(document).ready(function () {
             "use strict";
             // TODO: "Move It" should move the box 100 pixels to the left
-            $(document).ready(function () {
                 $('#btn-move').click(function () {
                     $('#animate-box').animate({
-                        left: "+=100",
+                        right: "+=100"
                     }, 500);
                 });
-            });
-        // TODO: "Scale It" should expand the box width by 50%
+                // TODO: "Scale It" should expand the box width by 50%
+                $('#btn-scale').click(function() {
+                    $('#animate-box').animate({
+                        width: "375px"
+                    },500);
+                });
 
-        // TODO: "Hide It" should use opacity to make the box invisible
+                // TODO: "Hide It" should use opacity to make the box invisible
 
-        // TODO: "Show It" should make the box appear
+                // TODO: "Show It" should make the box appear
 
-        // TODO: "Animate All" should use an animation stack to:
-        //      1) Move and scale the box simultaneously
-        //      2) Hide the box
-        //      3) Reset the box back to its original position and opacity
+                // TODO: "Animate All" should use an animation stack to:
+                //      1) Move and scale the box simultaneously
+                //      2) Hide the box
+                //      3) Reset the box back to its original position and opacity
     });
     </script>
 </body>
