@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Online Store</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        #head {
+            height: 65px;
+            width: auto;
+            background-color: #46a283;
+        }
+        h1 {
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+            margin: 0 auto 15px auto;
+        }
+        #footer-1 {
+            height: 75px;
+            width: auto;
+            background-color: #46a283;
+        }
+        #footer-2{
+            height: 65px;
+            width: auto;
+            margin: 75px 0;
+            background-color: #46a283;
+        }
+        #footer-3{
+            height: 100px;
+            width: auto;
+            background-color: #46a283;
+        }
+        #products {
+            height: auto;
+            width: 700px;
+            margin: 30px auto;
+        }
+        img{
+            max-height: 500px;
+            max-width: 700px;
+            opacity: 50;
+            border-radius: 20px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="head"></div>
+<h1>The Tool Shed</h1>
+<h3>Current Inventory</h3>
+<table id="products" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<img src="img/Gardening.jpg"/>
+<div id="footer-1"></div>
+<div id="footer-2"></div>
+<div id="footer-3"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+
+
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an ajax GET request for /data/inventory.json
+    var inventoryData = $.get("data/inventory.json");
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+
+    inventoryData.done(function(data){
+        var tableFiller = "";
+        data.forEach(function(object) {
+           tableFiller += '<tr><td>' + object.title
+                   + '</td><td>' + object.quantity
+                   + '</td><td>' + object.price
+                   + '</td><td>' + object.categories.join(', ')
+                   + '</td></tr>';
+        });
+        $('#insertProducts').html(tableFiller);
+    });
+
+    inventoryData.fail(function() {
+        console.log("something went wrong");
+    });
+
+    inventoryData.always(function(){
+
+        console.log("hopefully something worked");
+    })
+})();
+</script>
+
+</body>
+</html>
+
