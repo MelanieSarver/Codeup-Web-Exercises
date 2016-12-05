@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map API</title>
+</head>
+<body>
+<h1>Weather API</h1>
+<h2>San Antonio</h2>
+<div id="today"></div>
+
+
+
+<script src="js/jquery-2.2.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    (function () {
+        "use strict";
+
+     var weather = $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: "1d9c5b0467ae9d988d1ffdea309d8242",
+        q: "San Antonio, Tx",
+         units: "imperial"
+
+    }).done(function(data) {
+         console.log(data);
+         var icon = data.weather[0].icon;
+         $('#today').html(
+                 '<h4>' + 'Date' + '</h4><p>' + 'Current Conditions: '
+                 + data.main.temp + ' F' + '</p><img src="http://openweathermap.org/img/w/' + icon + '.png">'
+
+         );
+     });
+
+
+    })();
+</script>
+</body>
+</html>
