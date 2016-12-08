@@ -3,37 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <style>
+        body {
+            background-color: #9ac2fc;
+        }
+        h1 {
+            text-align: center;
+        }
+        #weather {
+            text-align: center;
+        }
+        .weather-box {
+            height: 300px;
+            width: 300px;
+            border: solid 2px cadetblue;
+            text-align: center;
+            border-radius: 5px;
+            display: inline-block;
+            background-color: #fff;
+            margin: 20px 0;
+        }
+        p {
+            margin-bottom: 2px;
+            margin-top: 2px;
+        }
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-<h1>Weather API</h1>
-<h2>San Antonio</h2>
-<div id="today"></div>
+<div class="page-header">
+<h1>Weather Application<small id="location"></small></h1>
+</div>
+<div id="weather"></div>
+<label>Change Location: </label>
+<input class="user-location">
+<input class="btn" type="submit" name="submit" value="Get Forecast">
+<div id="map-canvas"></div>
+
 
 
 
 <script src="js/jquery-2.2.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2SWL_pbdJ2Hwqdf7Fy5q6vESLIVcWclw&libraries=places"></script>
+
 <script>
-    (function () {
-        "use strict";
+(function () {
+    "use strict";
+//Get weather forcast for 3 days
+    function populate(object, i, date, high, low, icon, conditions, humidity, wind, pressure) {
+        return '<div class="weather-box"><h3>' + moment.unix(date).format('MMMM Do YYYY') + '</h3><p><strong>'
+                + Math.round(high) + '/' + Math.round(low)
+                + '</strong></p><img class="icon" src="http://openweathermap.org/img/w/' + icon + '.png"><p>'
+                + 'Conditions: ' + conditions + '</p><p>'
+                + 'Humidity: ' + humidity + '</p><p>'
+                + 'Wind Speed: ' + wind + '</p><p>'
+                + 'Pressure: ' + pressure + '</p></div>';
+    }
 
-     var weather = $.get("http://api.openweathermap.org/data/2.5/weather", {
-        APPID: "1d9c5b0467ae9d988d1ffdea309d8242",
-        q: "San Antonio, Tx",
-         units: "imperial"
+    var location = function (lat, long) {
+        var weather = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+            APPID: "1d9c5b0467ae9d988d1ffdea309d8242",
+            lat: lat,
+            lon: long,
+            units: "imperial",
+            cnt: 3
+        });
 
-    }).done(function(data) {
-         console.log(data);
-         var icon = data.weather[0].icon;
-         $('#today').html(
-                 '<h4>' + 'Date' + '</h4><p>' + 'Current Conditions: '
-                 + data.main.temp + ' F' + '</p><img src="http://openweathermap.org/img/w/' + icon + '.png">'
+        weather.done(function (data) {
+            console.log(data.list);
+            var forecast = [];
+            data.list.forEach(function (object, i) {
+                 forecast.push(populate(
+                        object, i,
+                        data.list[i].dt,
+                        data.list[i].temp.max,
+                        data.list[i].temp.min,
+                        data.list[i].weather[0].icon,
+                        data.list[i].weather[0].description,
+                        data.list[i].humidity,
+                        data.list[i].speed,
+                        data.list[i].pressure
+                ));
+            });
+            $('#weather').html(forecast);
+        });
 
-         );
-     });
+        return { lat: lat, lng: long };
+    };
+//Generate map with draggable location and an input field
+    var latlng = location(29.424122, -98.493629);
+    var mapOptions = {
+        zoom: 12,
+        center: latlng
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var geocoder = new google.maps.Geocoder();
+    var marker = new google.maps.Marker({
+        position: latlng,
+        animation: google.maps.Animation.DROP,
+        draggable: true,
+        map: map
+    });
 
-
-    })();
+    $('.btn').click(function (event) {
+        event.preventDefault();
+        var address = $('.user-location').val();
+        geocoder.geocode({address: address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log(results);
+                var lat = results[0].geometry.location.lat();
+                var long = results[0].geometry.location.lng();
+                var newLocation = function (map, marker) {
+                    marker.setPosition({lat: lat, lng: long});
+                    map.panTo({lat: lat, lng: long});
+                    location(lat, long);
+                };
+                newLocation(map, marker);
+            }
+        });
+    });
+    marker.addListener('dragend', function () {
+        var lat = this.getPosition().lat();
+        var long = this.getPosition().lng();
+        location(lat, long);
+    });
+}());
 </script>
 </body>
 </html>
+
+
+
